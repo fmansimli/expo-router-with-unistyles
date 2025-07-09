@@ -1,8 +1,10 @@
-import { StyleSheet } from "react-native-unistyles";
+import { StyleSheet, UnistylesThemes } from "react-native-unistyles";
+import storage from "./storage";
 
 const lightTheme = {
   colors: {
     background: "#FCFAF8",
+    tabBackground: "#ebe9e4",
     foreground: "#EDEAE6",
     typography: "#1B140C",
     dimmed: "#ECE8E4",
@@ -23,6 +25,7 @@ const lightTheme = {
 const darkTheme = {
   colors: {
     background: "#221A11",
+    tabBackground: "#171716",
     foreground: "#332618",
     typography: "#FFFFFF",
     dimmed: "#A8A198",
@@ -63,8 +66,8 @@ declare module "react-native-unistyles" {
 
 StyleSheet.configure({
   settings: {
-    adaptiveThemes: false,
-    initialTheme: "light",
+    initialTheme:
+      (storage.getString("theme") as keyof UnistylesThemes) || "light",
   },
   themes: {
     light: lightTheme,

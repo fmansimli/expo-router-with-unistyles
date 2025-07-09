@@ -3,16 +3,21 @@ import { Text, View } from "react-native";
 import { StyleSheet, UnistylesRuntime } from "react-native-unistyles";
 
 import { Switch } from "@expo/ui/swift-ui";
+import storage from "../../storage";
+
+const isDark = storage.getString("theme") === "dark";
 
 const ThemeSwitcher = () => {
-  const [value, setValue] = useState(false);
+  const [value, setValue] = useState(isDark);
 
   function changeHandler(value: boolean): void {
     setValue(value);
     if (value) {
       UnistylesRuntime.setTheme("dark");
+      storage.set("theme", "dark");
     } else {
       UnistylesRuntime.setTheme("light");
+      storage.set("theme", "light");
     }
   }
 

@@ -3,8 +3,6 @@ import { StyleSheet } from "react-native-unistyles";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 
 const TabSettingsScreen = () => {
-  console.log("settings screen rendered");
-
   return (
     <View style={styles.container}>
       <Text>Tab Settings Screen</Text>

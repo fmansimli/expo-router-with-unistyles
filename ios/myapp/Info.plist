@@ -27,6 +27,7 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
+          <string>my-app-scheme</string>
           <string>com.anonymous.myapp</string>
         </array>
       </dict>
